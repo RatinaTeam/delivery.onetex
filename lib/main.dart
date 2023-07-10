@@ -10,47 +10,52 @@ import 'Controllers/global-controller.dart';
 import 'Locale/language.dart';
 import 'Screen/SplashScreen/splash_screen.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final box = GetStorage();
   await GetStorage.init();
-  dynamic langValue = const Locale('en', 'US');
+  dynamic langValue = const Locale('ar', 'AR');
   if (box.read('lang') != null) {
     langValue = Locale(box.read('lang'), box.read('langKey'));
   } else {
-    langValue = const Locale('en', 'US');
+    langValue = const Locale('ar', 'AR');
   }
-  runApp( MyApp(lang: langValue));
+  runApp(MyApp(lang: langValue));
 }
 
 class MyApp extends StatelessWidget {
   final Locale lang;
+
   MyApp({Key? key, required this.lang}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: kMainColor
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: kMainColor));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
     Get.put(GlobalController()).onInit();
 
-    return  ScreenUtilInit(
-        designSize: Size(360, 800),
-    builder: ((context, child) =>
-      GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-    translations: Languages(),
-    locale: lang,
-      title: 'Merchant',
-      theme: ThemeData(fontFamily: 'Display'),
-      home: const SplashScreen(),
-    )));
+    return ScreenUtilInit(
+      designSize: Size(360, 800),
+      builder: ((context, child) => GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            translations: Languages(),
+            locale: lang,
+            title: 'Merchant',
+            theme: ThemeData(
+                    fontFamily: 'Display',
+                    primaryColor: kMainColor,
+                    focusColor: kMainColor)
+                .copyWith(
+              colorScheme:
+                  ThemeData().colorScheme.copyWith(primary: kMainColor),
+            ),
+            home: const SplashScreen(),
+          )),
+    );
   }
 }
-

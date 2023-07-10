@@ -1,6 +1,6 @@
 class APIList {
-  static String? server = "https://weapps.wemaxdevs.com/api/v10/";
-  static String? apiUrl = "weapps.wemaxdevs.com";
+  static String? server = "https://srv.onetex.com.sa/api/v10/";
+  static String? apiUrl = "srv.onetex.com.sa";
   static String? apiCheckKey = "123456rx-ecourier123456";
   static String? apiEndPoint = "/api/v10/";
   static String? login = "${server!}deliveryman/login";
@@ -20,5 +20,4 @@ class APIList {
   static String? paymentLogs = "${server!}deliveryman/payment-logs";
   static String? paymentParcelLogs = "${server!}deliveryman/parcel-payment-logs";
   static String? changeStatus = "deliveryman/parcel-status-update";
-
 }

@@ -1,5 +1,6 @@
 class Images {
   static String get appLogo => 'assets/images/logo.png';
+  static String get appLogo1 => 'assets/images/logo1.png';
   static String get kPath1 => 'assets/images/img1.png';
   static String get kPath2 => 'assets/images/img2.png';
   static String get kPath3 => 'assets/images/img3.png';
@@ -27,4 +28,7 @@ class Images {
   static String get item1 => 'assets/images/item.png';
   static String get addons1 => 'assets/images/addons.png';
   static String get imageCustomer => 'assets/images/customer.png';
+  static String get mapIcon => 'assets/icons/maps.png';
+  static String get whatsAppIcon => 'assets/icons/whatsapp.png';
+  static String get phoneIcon => 'assets/icons/telephone.png';
 }

@@ -1,14 +1,16 @@
 import 'package:courier/Screen/Widgets/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../Controllers/auth-controller.dart';
 import '../../utils/image.dart';
 import '../../utils/size_config.dart';
+import '../../utils/style.dart';
 import '../Widgets/button_global.dart';
 import 'package:get/get.dart';
 
 import '../Widgets/loader.dart';
-
+import '../Widgets/text_field_widget.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -20,176 +22,170 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool isChecked = true;
   final _formKey = GlobalKey<FormState>();
+  late bool _passwordVisible;
 
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _emailController    = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   AuthController authController = AuthController();
+
+  @override
+  void initState() {
+    _passwordVisible = true;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     SizeConfigCustom sizeConfig = SizeConfigCustom();
     sizeConfig.init(context);
     return GetBuilder<AuthController>(
-        init: AuthController(),
-    builder: (auth) =>
-      SafeArea(
-      child: Scaffold(
-        backgroundColor: kMainColor,
-        body: Stack(children: [
-        Center(
-        child:
-        SingleChildScrollView(
-          child: Column(
+      init: AuthController(),
+      builder: (auth) => SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: kBgColor,
+          body: Stack(
             children: [
-              const SizedBox(
-                height: 40,
-              ),
-               Center(
-                child:  Container(
-                  margin: EdgeInsets.only(right: 30),
-                  height: 120,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(Images.appLogo),
-                      fit: BoxFit.contain,
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 80.h,
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 5.0,
-              ),
-              Text(
-                'please_enter_your_user_information'.tr,
-                style: kTextStyle.copyWith(color: kBgColor, fontSize: 18.0),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child:  Form(
-                    key: _formKey,
-                    child:
-                  Column(
-                    children: [
-                      const SizedBox(height: 20.0),
-                      AppTextField(
-                        showCursor: true,
-                        controller: _emailController,
-                        validator: (value) {
-                          if (_emailController.text.isEmpty) {
-                            return "this_field_can_t_be_empty".tr;
-                          }
-                          return null;
-                        },
-                        cursorColor: kTitleColor,
-                        textFieldType: TextFieldType.EMAIL,
-                        decoration: kInputDecoration.copyWith(
-                          labelText: 'email_mobile'.tr,
-                          labelStyle: kTextStyle.copyWith(color: kTitleColor),
-                          hintText: 'example@gmail.com',
-                          hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
-                          suffixIcon:
-                              const Icon(Icons.mail, color: kGreyTextColor),
+                    Center(
+                      child: Container(
+                        height: 120.h,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(Images.appLogo1),
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 20.0),
-                      AppTextField(
-                        showCursor: true,
-                        cursorColor: kTitleColor,
-                        controller: _passwordController,
-                        validator: (value) {
-                          if (_passwordController
-                              .text.isEmpty) {
-                            return "this_field_can_t_be_empty".tr;
-                          }
-                          return null;
-                        },
-                        textFieldType: TextFieldType.PASSWORD,
-                        decoration: kInputDecoration.copyWith(
-                          labelText: 'password'.tr,
-                          labelStyle: kTextStyle.copyWith(color: kTitleColor),
-                          hintText: '********',
-                          hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
-                        ),
-                      ),
-                      const SizedBox(height: 10.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Checkbox(
-                            activeColor: kMainColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(2.0),
-                            ),
-                            value: isChecked,
-                            onChanged: (val) {
-                              setState(
-                                () {
-                                  isChecked = val!;
+                    ),
+                    SizedBox(
+                      height: 15.0.h,
+                    ),
+                    Text(
+                      'please_enter_your_user_information'.tr,
+                      style:
+                      fontRegular.copyWith(color: fontColor, fontSize: 18.0),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              SizedBox(height: 20.0.h),
+                              GlobalFormField(
+                                  controller: _emailController,
+                                  type: TextInputType.emailAddress,
+                                  validate: (value) {
+                                    if (_emailController.text.isEmpty) {
+                                      return "this_field_can_t_be_empty".tr;
+                                    }
+                                    return null;
+                                  },
+                                  label: 'email_mobile'.tr,
+                                  prefixIcon: Icons.email_outlined,
+                                  hintText: 'example@gmail.com'),
+                              SizedBox(height: 20.0.h),
+                              GlobalFormField(
+                                controller: _passwordController,
+                                type: TextInputType.visiblePassword,
+                                validate: (value) {
+                                  if (_passwordController.text.isEmpty) {
+                                    return "this_field_can_t_be_empty".tr;
+                                  }
+                                  return null;
                                 },
-                              );
-                            },
+                                label: 'password'.tr,
+                                prefixIcon: Icons.lock_outlined,
+                                hintText: '********',
+                                isPassword: _passwordVisible,
+                                suffix: _passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                suffixPressed: () {
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                },
+                              ),
+                              SizedBox(height: 10.h),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    activeColor: kMainColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(2.0),
+                                    ),
+                                    value: isChecked,
+                                    onChanged: (val) {
+                                      setState(
+                                        () {
+                                          isChecked = val!;
+                                        },
+                                      );
+                                    },
+                                  ),
+                                  Text(
+                                    'remember_me'.tr,
+                                    style: fontRegular.copyWith(
+                                        color: kTitleColor,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const Spacer(),
+                                ],
+                              ),
+                              SizedBox(height: 10.0.h),
+                              ButtonGlobal(
+                                buttontext: 'sign_in'.tr,
+                                buttonDecoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    color: kMainColor),
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    auth.loginOnTap(
+                                        email: _emailController.text
+                                            .toString()
+                                            .trim(),
+                                        pass: _passwordController.text
+                                            .toString()
+                                            .trim());
+                                  }
+                                },
+                              ),
+                            ],
                           ),
-                          Text(
-                            'remember_me'.tr,
-                            style: kTextStyle.copyWith(
-                                color: kTitleColor,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const Spacer(),
-                        ],
+                        ),
                       ),
-                      const SizedBox(height: 30.0),
-                      ButtonGlobal(
-                          buttontext: 'sign_in'.tr,
-                          buttonDecoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: kMainColor),
-                          onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                auth.loginOnTap(
-                                    email: _emailController.text
-                                        .toString()
-                                        .trim(),
-                                    pass: _passwordController.text
-                                        .toString()
-                                        .trim());
-                              }
-                          },
-                         ),
-                    ],
-                  ),)
+                    )
+                  ],
                 ),
-              )
+              ),
+              auth.loader
+                  ? Positioned(
+                      child: Container(
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.white60,
+                          child: const Center(child: LoaderCircle())),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
-        )
-        ),
-          auth.loader
-              ? Positioned(
-            child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.white60,
-                child: const Center(child: LoaderCircle())),
-          )
-              : const SizedBox.shrink(),
-        ]
         ),
       ),
-    ));
+    );
   }
 }

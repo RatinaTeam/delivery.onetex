@@ -24,138 +24,152 @@ class ScreenSize {
 }
 
 final fontSizeSmall = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
   fontSize: Dimensions.fontSizeExtraSmall.sp,
+  color: Colors.white,
 );
 final fontSizeSmallGray = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
   color: grayColor,
   fontSize: Dimensions.fontSizeExtraSmall.sp,
 );
 
 final fontSizeReasonText = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeReasonText.sp,
 );
 
 final fontSizeAuth = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.black,
   fontSize: Dimensions.fontSizeReasonHeading.sp,
 );
 
 final fontSmall = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeExtraSmallSamll.sp,
 );
 final fontSmallwithColor = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
   color: kMainColor,
   fontSize: Dimensions.fontSizeSmall.sp,
 );
 final fontSmallBold = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontSize: 11,
 );
 final fontRegularPro = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeDefault.sp,
 );
 final fontRegular = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeSmall.sp,
 );
 final fontRegularWithColor = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w400,
   color: kMainColor,
   fontSize: Dimensions.fontSizeSmall.sp,
 );
 final fontRegularBold = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontSize: 14.sp,
 );
 final fontRegularBoldWhite = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
   color: Colors.white,
   fontSize: 14.sp,
 );
 final fontRegularBoldwithWhiteColor = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
   color: Colors.white,
   fontSize: Dimensions.fontSizeSmall.sp,
 );
 final fontRegularBoldGreen = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
   color: green,
   fontSize: Dimensions.fontSizeSmall.sp,
 );
 final fontRegularBoldwithColor = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
   fontSize: Dimensions.fontSizeSmall.sp,
   color: kMainColor,
 );
 
 final fontMedium = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeLarge.sp,
 );
 final fontMediumPro = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w600,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeDefault.sp,
 );
 
 final fontMediumProWhite = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w600,
   color: Colors.white,
   fontSize: Dimensions.fontSizeDefault.sp,
 );
 final fontSemiBold = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontSize: 16.sp,
 );
 
 final fontBold = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
+  color: Colors.white,
   fontWeight: FontWeight.w600,
   fontSize: Dimensions.fontSizeExtraLarge.sp,
 );
 final fontBoldWithColor = TextStyle(
-    fontFamily: 'Rubik',
+    fontFamily: 'Janna',
     fontWeight: FontWeight.w600,
     fontSize: Dimensions.fontSizeExtraLarge.sp,
     color: kMainColor);
 
 final fontBlack = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w700,
+  color: Colors.black,
   fontSize: Dimensions.fontSizeOverLarge.sp,
 );
 final fontSizeExtraLarge22 = TextStyle(
-  fontFamily: 'Rubik',
+  fontFamily: 'Janna',
   fontWeight: FontWeight.w500,
+  color: Colors.white,
   fontSize: Dimensions.fontSizeExtraLarge22.sp,
 );
 
 final fontProfile = TextStyle(
-    fontFamily: 'Rubik',
+    fontFamily: 'Janna',
     fontSize: 15,
     fontWeight: FontWeight.w500,
     color: fontColor);

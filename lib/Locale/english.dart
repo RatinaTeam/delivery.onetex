@@ -119,6 +119,7 @@ Map<String, String> english =
   'new_password':"New Password",
   'old_password':"Old Password",
   'retype_new_password':"Retype New Password",
+  'choose_your_preferred_language':"Choose Your Preferred Language",
 
 
 };

@@ -115,5 +115,6 @@ Map<String, String> arabic =
   'new_password':"كلمة مرور جديدة",
   'old_password':"كلمة المرور القديمة",
   'retype_new_password':"أعد كتابة كلمة السر الجديدة",
+  'choose_your_preferred_language':"اختر اللغة المفضلة",
 
 };

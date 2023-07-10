@@ -1,11 +1,12 @@
-import 'package:bottom_bar/bottom_bar.dart';
 import 'package:courier/Screen/Home/dashboard.dart';
 import 'package:courier/Screen/Payment/payment.dart';
 import 'package:courier/Screen/Profile/profile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../utils/style.dart';
 import '../Payment/payment_parcel_history.dart';
 import '../Widgets/constant.dart';
 
@@ -26,64 +27,71 @@ class _HomeState extends State<Home> {
     PaymentParcelHistoryPage(),
     Profile(),
   ];
-
+//              "payment_log".tr,   FontAwesomeIcons.clipboardList
+  //              "parcel_payment_history".tr,               FontAwesomeIcons.paperPlane,
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgColor,
       body: _widgetOptions.elementAt(_currentPage),
-      bottomNavigationBar: BottomBar(
-        backgroundColor: Color(0xFFf9f9fe),
-        items: [
-          /// Home
-          BottomBarItem(
-            icon: const Icon(FontAwesomeIcons.house, size: 16.0),
-            title: Text(
-              "home".tr,
-              style: kTextStyle.copyWith(color: kGreyTextColor),
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            indicatorColor: kMainColor.withOpacity(0.2),
+            labelTextStyle: MaterialStateProperty.all(
+              fontRegular.copyWith(
+                  color: kMainColor, fontSize: 13, fontWeight: FontWeight.w700),
             ),
-            activeColor: kGreyTextColor,
-            inactiveColor: kTitleColor,
-          ),
-
-          /// History
-          BottomBarItem(
-            icon: const Icon(FontAwesomeIcons.clipboardList, size: 16.0),
-            title: Text(
-              "payment_log".tr,
-              style: kTextStyle.copyWith(color: kGreyTextColor),
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected),
+        child: NavigationBar(
+          height: 70.h,
+          backgroundColor: kBgColor,
+          selectedIndex: _currentPage,
+          animationDuration: Duration(seconds: 0),
+          onDestinationSelected: (index) => setState(() {
+            _currentPage = index;
+          }),
+          destinations: [
+            NavigationDestination(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 28.0,
+                color: grayColor,
+              ),
+              selectedIcon: Icon(Icons.home, size: 28.0.h, color: kMainColor),
+              label: "home".tr,
             ),
-            activeColor: kGreyTextColor,
-            inactiveColor: kTitleColor,
-          ),
-
-          /// Orders
-          BottomBarItem(
-            backgroundColorOpacity: 0.1,
-            icon: const Icon(
-              FontAwesomeIcons.paperPlane,
-              size: 16.0,
+            NavigationDestination(
+              icon: Icon(
+                CupertinoIcons.square_list,
+                size: 28.0,
+                color: grayColor,
+              ),
+              selectedIcon:
+              Icon(CupertinoIcons.square_list_fill, size: 28.0, color: kMainColor),
+              label: "payment_log".tr,
             ),
-            title: Text(
-              "parcel_payment_history".tr,
-              style: kTextStyle.copyWith(color: kGreyTextColor),
+            NavigationDestination(
+              icon: Icon(
+                Icons.payments_outlined,
+                size: 28.0,
+                color: grayColor,
+              ),
+              selectedIcon:
+              Icon(Icons.payments, size: 28.0, color: kMainColor),
+              label: "parcel_payment_history".tr,
             ),
-            activeColor: kGreyTextColor,
-            inactiveColor: kTitleColor,
-          ),
-
-          /// Profile
-           BottomBarItem(
-            icon: Icon(FontAwesomeIcons.user, size: 16.0),
-            title: Text("profile".tr),
-            activeColor: kGreyTextColor,
-            inactiveColor: kTitleColor,
-          ),
-        ],
-        onTap: (int index) {
-          setState(() => _currentPage = index);
-        },
-        selectedIndex: _currentPage,
+            NavigationDestination(
+              icon: Icon(
+                Icons.person_2_outlined,
+                size: 28.0,
+                color: grayColor,
+              ),
+              selectedIcon: Icon(Icons.person_2, size: 28.0, color: kMainColor),
+              label: "profile".tr,
+            ),
+          ],
+        ),
       ),
     );
   }

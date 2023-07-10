@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../Controllers/auth-controller.dart';
 import '../../utils/image.dart';
+import '../../utils/style.dart';
 import '../Widgets/button_global.dart';
 import '../Widgets/constant.dart';
 import '../Widgets/otp_form.dart';
@@ -46,7 +47,7 @@ class _OtpVerifyState extends State<OtpVerify> {
             ),
             Text(
               'confirm_otp'.tr,
-              style: kTextStyle.copyWith(
+              style: fontRegular.copyWith(
                   color: kGreyTextColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0),
@@ -70,13 +71,13 @@ class _OtpVerifyState extends State<OtpVerify> {
                     const SizedBox(height: 20.0),
                     Text(
                       'check_your_phone_we_have_send_you_a_5_digit_otp_please_confirm_that_otp_to_verify_your_phone_number_for_registrations'.tr,
-                      style: kTextStyle.copyWith(color: kTitleColor),
+                      style: fontRegular.copyWith(color: kTitleColor),
                       textAlign: TextAlign.center,
                     ),
                     Center(
                       child: Text(
                         '********',
-                        style: kTextStyle.copyWith(
+                        style: fontRegular.copyWith(
                             color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -84,7 +85,7 @@ class _OtpVerifyState extends State<OtpVerify> {
                     Center(
                       child: Text(
                         'your_otp'.tr,
-                        style: kTextStyle.copyWith(
+                        style: fontRegular.copyWith(
                             color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -110,11 +111,11 @@ class _OtpVerifyState extends State<OtpVerify> {
                     RichText(
                       text: TextSpan(
                         text: 'didn_t_get'.tr,
-                        style: kTextStyle.copyWith(color: kGreyTextColor),
+                        style: fontRegular.copyWith(color: kGreyTextColor),
                         children: [
                           TextSpan(
                             text: 'resend_code'.tr,
-                            style: kTextStyle.copyWith(color: Colors.pink),
+                            style: fontRegular.copyWith(color: Colors.pink),
                           ),
                         ],
                       ),

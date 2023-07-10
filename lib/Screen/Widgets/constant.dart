@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 
-
-const kMainColor = Color(0xFF7e0095);
+const kMainColor = Color(0xFF2f3190);
 const kBgColor = Color(0xFFfafafb);
 const Color itembg = Color(0xffEFF0F6);
 const Color deleveryColor = Color(0xffBDEFFF);
-const kSecondaryColor = Color(0xFFD84474);
+const kSecondaryColor = Color(0xFFf38121);
 const kGreyTextColor = Color(0xFF818181);
 const kBorderColorTextField = Color(0xFFE8E7E5);
 const kDarkWhite = Color(0xFFEFF0F5);
@@ -26,23 +24,13 @@ const Color redColor = Color(0xffDD2702);
  const Color borderColors = Color(0xffE3EBFF);
 const Color titleColor = Color(0xff0A183F);
 const Color nameColor = Color(0xff0A183F);
-final kTextStyle = GoogleFonts.manrope(
-  color: Colors.white,
-);
+
 const kButtonDecoration = BoxDecoration(
   color: kMainColor,
   borderRadius: BorderRadius.all(
     Radius.circular(40.0),
   ),
 );
-
-class ScreenSize {
-  BuildContext context;
-  ScreenSize(this.context);
-  double get mainHeight => MediaQuery.of(context).size.height;
-  double get mainWidth => MediaQuery.of(context).size.width;
-  double get block => mainWidth / 100;
-}
 
 const kInputDecoration = InputDecoration(
   hintStyle: TextStyle(color: kBorderColorTextField),

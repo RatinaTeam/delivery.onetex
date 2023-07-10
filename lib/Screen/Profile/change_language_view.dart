@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 import '../../Controllers/language_controller.dart';
 import '../../utils/image.dart';
@@ -18,10 +19,19 @@ class ChangeLanguageView extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: kBgColor,
         appBar: AppBar(
           centerTitle: true,
-          elevation: 0,
-          backgroundColor: kMainColor,
+          title: Text(
+            "change_language".tr,
+            style: fontRegular.copyWith(
+                fontSize: Dimensions.fontSizeExtraLarge.sp,
+                fontWeight: FontWeight.w800,
+                color: kMainColor),
+          ),
+          elevation: 0.3,
+          backgroundColor: kBgColor,
+          iconTheme: const IconThemeData(color: kMainColor),
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 24, left: 16),
@@ -31,7 +41,7 @@ class ChangeLanguageView extends GetView {
               Column(
                 children: [
                   Text(
-                    "change_language".tr,
+                    "choose_your_preferred_language".tr,
                     style: fontBlack,
                   ),
                 ],
@@ -52,7 +62,7 @@ class ChangeLanguageView extends GetView {
                         : Colors.white,
                     border: box.read('lang') == 'en'
                         ? Border.all(color: kMainColor)
-                        : Border.all(color: Colors.white),
+                        : Border.all(color: darkGrey),
                   ),
                   height: 56.h,
                   width: 328.w,
@@ -69,21 +79,21 @@ class ChangeLanguageView extends GetView {
                     SizedBox(width: 16.w),
                     Text(
                       "English",
-                      style: fontMedium,
+                      style: fontMedium.copyWith(color: kTitleColor),
                     ),
                     const Spacer(),
                     box.read('lang') == 'en'
                         ? Padding(
-                            padding: const EdgeInsets.only(right: 18),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(
-                                Images.iconRoundedTicked,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
+                      padding: const EdgeInsets.only(right: 18),
+                      child: SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: SvgPicture.asset(
+                          Images.iconRoundedTicked,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
                         : const SizedBox(),
                   ]),
                 ),
@@ -104,7 +114,7 @@ class ChangeLanguageView extends GetView {
                         : Colors.white,
                     border: box.read('lang') == 'bn'
                         ? Border.all(color: kMainColor)
-                        : Border.all(color: Colors.white),
+                        : Border.all(color: darkGrey),
                   ),
                   height: 56.h,
                   width: 328.w,
@@ -121,21 +131,21 @@ class ChangeLanguageView extends GetView {
                     SizedBox(width: 16.w),
                     Text(
                       "Bangla",
-                      style: fontMedium,
+                      style: fontMedium.copyWith(color: kTitleColor),
                     ),
                     const Spacer(),
                     box.read('lang') == 'bn'
                         ? Padding(
-                            padding: const EdgeInsets.only(right: 18),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(
-                                Images.iconRoundedTicked,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
+                      padding: const EdgeInsets.only(right: 18),
+                      child: SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: SvgPicture.asset(
+                          Images.iconRoundedTicked,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
                         : const SizedBox(),
                   ]),
                 ),
@@ -156,7 +166,7 @@ class ChangeLanguageView extends GetView {
                         : Colors.white,
                     border: box.read('lang') == 'ar'
                         ? Border.all(color: kMainColor)
-                        : Border.all(color: Colors.white),
+                        : Border.all(color: darkGrey),
                   ),
                   height: 56.h,
                   width: 328.w,
@@ -173,21 +183,21 @@ class ChangeLanguageView extends GetView {
                     SizedBox(width: 16.w),
                     Text(
                       "عربي",
-                      style: fontMedium,
+                      style: fontMedium.copyWith(color: kTitleColor),
                     ),
                     const Spacer(),
                     box.read('lang') == 'ar'
                         ? Padding(
-                            padding: const EdgeInsets.only(right: 18),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(
-                                Images.iconRoundedTicked,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
+                      padding: const EdgeInsets.only(right: 18),
+                      child: SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: SvgPicture.asset(
+                          Images.iconRoundedTicked,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
                         : const SizedBox(),
                   ]),
                 ),
@@ -208,7 +218,7 @@ class ChangeLanguageView extends GetView {
                         : Colors.white,
                     border: box.read('lang') == 'hi'
                         ? Border.all(color: kMainColor)
-                        : Border.all(color: Colors.white),
+                        : Border.all(color: darkGrey),
                   ),
                   height: 56.h,
                   width: 328.w,
@@ -225,21 +235,21 @@ class ChangeLanguageView extends GetView {
                     SizedBox(width: 16.w),
                     Text(
                       "हिन्दी",
-                      style: fontMedium,
+                      style: fontMedium.copyWith(color: kTitleColor),
                     ),
                     const Spacer(),
                     box.read('lang') == 'hi'
                         ? Padding(
-                            padding: const EdgeInsets.only(right: 18),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(
-                                Images.iconRoundedTicked,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )
+                      padding: const EdgeInsets.only(right: 18),
+                      child: SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: SvgPicture.asset(
+                          Images.iconRoundedTicked,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
                         : const SizedBox(),
                   ]),
                 ),

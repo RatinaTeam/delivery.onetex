@@ -54,19 +54,18 @@ dependencies:
   flutter_screenutil: ^5.6.0
   get_storage: ^2.0.3
   flutter_svg: ^1.1.5
-  firebase_core: ^1.22.0
-  firebase_messaging: ^13.0.2
-  firebase_analytics: ^9.3.5
-
+  firebase_core: ^2.4.0
+  firebase_messaging: ^14.2.6
+  firebase_analytics: ^10.1.6
+  flutter_launcher_icons: ^0.13.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.9.3
 
-flutter_icons:
-  image_path: "assets/images/logo.png"
+flutter_launcher_icons:
+  image_path: "assets/images/logo1.png"
   android: "launcher_icon"
   iso: true
 
@@ -108,16 +107,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Rubik
+    - family: Janna
       fonts:
-        - asset: assets/fonts/Rubik-Regular.ttf
+        - asset: assets/fonts/Janna-LT-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Rubik-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Rubik-Bold.ttf
+        - asset: assets/fonts/Janna-LT-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Rubik-Black.ttf
-          weight: 900
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
