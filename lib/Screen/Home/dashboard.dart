@@ -14,13 +14,12 @@ import 'package:get_storage/get_storage.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'dart:math' as math;
 
 import '../../Controllers/global-controller.dart';
 import '../../Controllers/language_controller.dart';
-import '../../Models/dashboard_model.dart';
 import '../../Models/language_model.dart';
 import '../../utils/image.dart';
 import '../../utils/style.dart';
@@ -36,6 +35,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  int statusActive = 1;
   Language? selectedLang;
   DashboardController dashboardController = Get.put(DashboardController());
   GlobalController globalController = GlobalController();
@@ -145,10 +145,9 @@ class _DashBoardState extends State<DashBoard> {
                       onTap: (() => const Home().launch(context)),
                       contentPadding: EdgeInsets.zero,
                       horizontalTitleGap: 0,
-                      leading: const Icon(
-                        FontAwesomeIcons.house,
-                        color: kTitleColor,
-                        size: 18.0,
+                      leading: Image.asset(
+                        Images.homeLineIcon,
+                        width: 22.w,
                       ),
                       title: Text(
                         'dashboard'.tr,
@@ -168,10 +167,9 @@ class _DashBoardState extends State<DashBoard> {
                       onTap: (() => const Profile().launch(context)),
                       contentPadding: EdgeInsets.zero,
                       horizontalTitleGap: 0,
-                      leading: const Icon(
-                        FontAwesomeIcons.user,
-                        color: kTitleColor,
-                        size: 18.0,
+                      leading: Image.asset(
+                        Images.profileLineIcon,
+                        width: 22.w,
                       ),
                       title: Text(
                         'profile'.tr,
@@ -191,10 +189,9 @@ class _DashBoardState extends State<DashBoard> {
                       onTap: (() => const PaymentPage().launch(context)),
                       contentPadding: EdgeInsets.zero,
                       horizontalTitleGap: 0,
-                      leading: const Icon(
-                        FontAwesomeIcons.list,
-                        color: kTitleColor,
-                        size: 18.0,
+                      leading: Image.asset(
+                        Images.paperLineIcon,
+                        width: 22.w,
                       ),
                       title: Text(
                         'payment_log'.tr,
@@ -215,10 +212,9 @@ class _DashBoardState extends State<DashBoard> {
                           const PaymentParcelHistoryPage().launch(context)),
                       contentPadding: EdgeInsets.zero,
                       horizontalTitleGap: 0,
-                      leading: const Icon(
-                        FontAwesomeIcons.clipboardList,
-                        color: kTitleColor,
-                        size: 18.0,
+                      leading: Image.asset(
+                        Images.transactionsLineIcon,
+                        width: 22.w,
                       ),
                       title: Text(
                         'parcel_payment_history'.tr,
@@ -241,10 +237,12 @@ class _DashBoardState extends State<DashBoard> {
                       },
                       contentPadding: EdgeInsets.zero,
                       horizontalTitleGap: 0,
-                      leading: const Icon(
-                        Icons.exit_to_app,
-                        color: kTitleColor,
-                        size: 18.0,
+                      leading: Transform.rotate(
+                        angle: 270 * math.pi / 180,
+                        child: Image.asset(
+                          Images.logoutIcon,
+                          width: 22.w,
+                        ),
                       ),
                       title: Text(
                         'log_out'.tr,
@@ -395,463 +393,824 @@ class _DashBoardState extends State<DashBoard> {
           body: TabBarView(
             physics: const BouncingScrollPhysics(),
             children: [
-              GestureDetector(
-                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                child: RefreshIndicator(
-                  displacement: 250,
-                  backgroundColor: Colors.yellow,
-                  color: Colors.red,
-                  strokeWidth: 3,
-                  onRefresh: () async {
-                    await Future.delayed(Duration(milliseconds: 1500));
-                    setState(() {
-                      dashboard.onInit();
-                    });
-                  },
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 18.h),
-                            child: dashboard.deliverymanAssignList.length == 0
-                                ? Padding(
-                                    padding: EdgeInsets.only(top: 250.h),
-                                    child: Center(
-                                      child: Text(
-                                        'no_item_found'.tr,
-                                        style: fontRegular.copyWith(
-                                            fontSize: Dimensions
-                                                .fontSizeExtraLarge22.sp,
-                                            fontWeight: FontWeight.bold,
-                                            color: kMainColor),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 20.h),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 4.h, horizontal: 20.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              statusActive = 1;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 150,
+                            decoration: statusActive == 1
+                                ? BoxDecoration(
+                                    color: kMainColor,
+                                    borderRadius: BorderRadius.circular(6),
+                                  )
+                                : BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.fromBorderSide(
+                                      BorderSide(
+                                        color: kMainColor,
                                       ),
                                     ),
-                                  )
-                                : RefreshIndicator(
-                                    displacement: 250,
-                                    backgroundColor: Colors.yellow,
-                                    color: Colors.red,
-                                    strokeWidth: 3,
-                                    onRefresh: () async {
-                                      await Future.delayed(
-                                          Duration(milliseconds: 1500));
-                                      setState(() {
-                                        dashboard.onInit();
-                                      });
-                                    },
-                                    child: ListView.builder(
-                                      itemCount: dashboard
-                                          .deliverymanAssignList.length,
-                                      shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      padding: EdgeInsets.zero,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        return InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                showPopUp(dashboard
-                                                        .deliverymanAssignList[
-                                                    index]);
-                                              });
-                                            },
-                                            child: Card(
-                                              color: kBgColor,
-                                              margin: EdgeInsets.symmetric(
-                                                  vertical: 7),
-                                              elevation: 1,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(6.0),
-                                              ),
-                                              child: Container(
-                                                height: 165.h,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          6.0),
-                                                  gradient: LinearGradient(
-                                                      stops: [
-                                                        0.02,
-                                                        0.02
-                                                      ],
-                                                      colors: [
-                                                        kMainColor,
-                                                        Colors.white
-                                                      ]),
-                                                ),
-                                                padding:
-                                                    EdgeInsetsDirectional.only(
-                                                  start: 5.0.w,
-                                                  top: 10.0.h,
-                                                  bottom: 10.0.h,
-                                                  end: 20.0.w,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50),
-                                                        color: Colors.white,
-                                                        image: DecorationImage(
-                                                          image: AssetImage(
-                                                              Images.parcel),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      height: 60.h,
-                                                      width: 60.w,
+                                  ),
+                            child: Center(
+                              child: Text(
+                                'assign'.tr,
+                                style: fontRegular.copyWith(
+                                    color: statusActive == 1
+                                        ? Colors.white
+                                        : kMainColor,
+                                    fontSize: Dimensions.fontSizeLarge.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              statusActive = 2;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 150,
+                            decoration: statusActive == 2
+                                ? BoxDecoration(
+                                    color: kSecondaryColor,
+                                    borderRadius: BorderRadius.circular(6))
+                                : BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.fromBorderSide(
+                                      BorderSide(
+                                        color: kSecondaryColor,
+                                      ),
+                                    ),
+                                  ),
+                            child: Center(
+                              child: Text(
+                                'pickup'.tr,
+                                style: fontRegular.copyWith(
+                                    color: statusActive == 2
+                                        ? Colors.white
+                                        : kSecondaryColor,
+                                    fontSize: Dimensions.fontSizeLarge.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                    child: RefreshIndicator(
+                      displacement: 250,
+                      backgroundColor: Colors.yellow,
+                      color: Colors.red,
+                      strokeWidth: 3,
+                      onRefresh: () async {
+                        await Future.delayed(Duration(milliseconds: 1500));
+                        setState(() {
+                          dashboard.onInit();
+                        });
+                      },
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: statusActive == 1
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(vertical: 18.h),
+                                      child:
+                                          dashboard.deliverymanAssignList
+                                                      .length ==
+                                                  0
+                                              ? Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 250.h),
+                                                  child: Center(
+                                                    child: Text(
+                                                      'no_item_found'.tr,
+                                                      style: fontRegular.copyWith(
+                                                          fontSize: Dimensions
+                                                              .fontSizeExtraLarge22
+                                                              .sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: kMainColor),
                                                     ),
-                                                    SizedBox(
-                                                      width: 10.w,
-                                                    ),
-                                                    Expanded(
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Icon(
-                                                                    CupertinoIcons
-                                                                        .person,
-                                                                    color:
-                                                                        kMainColor,
-                                                                    size: 16,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 4.w,
-                                                                  ),
-                                                                  Text(
-                                                                    dashboard
-                                                                        .deliverymanAssignList[
-                                                                            index]
-                                                                        .customerName
-                                                                        .toString(),
-                                                                    style: fontRegular
-                                                                        .copyWith(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                      fontSize:
-                                                                          14.sp,
-                                                                      color:
-                                                                          kMainColor,
-                                                                    ),
-                                                                    maxLines: 1,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                  ),
-                                                                ],
+                                                  ),
+                                                )
+                                              : RefreshIndicator(
+                                                  displacement: 250,
+                                                  backgroundColor:
+                                                      Colors.yellow,
+                                                  color: Colors.red,
+                                                  strokeWidth: 3,
+                                                  onRefresh: () async {
+                                                    await Future.delayed(
+                                                        Duration(
+                                                            milliseconds:
+                                                                1500));
+                                                    setState(() {
+                                                      dashboard.onInit();
+                                                    });
+                                                  },
+                                                  child: ListView.builder(
+                                                    itemCount: dashboard
+                                                        .deliverymanAssignList
+                                                        .length,
+                                                    shrinkWrap: true,
+                                                    physics:
+                                                        NeverScrollableScrollPhysics(),
+                                                    padding: EdgeInsets.zero,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      return InkWell(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              showPopUp(dashboard
+                                                                      .deliverymanAssignList[
+                                                                  index]);
+                                                            });
+                                                          },
+                                                          child: Card(
+                                                            color: kBgColor,
+                                                            margin: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        7),
+                                                            elevation: 1,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          6.0),
+                                                            ),
+                                                            child: Container(
+                                                              height: 165.h,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            6.0),
+                                                                gradient:
+                                                                    LinearGradient(
+                                                                        stops: [
+                                                                      0.02,
+                                                                      0.02
+                                                                    ],
+                                                                        colors: [
+                                                                      kMainColor,
+                                                                      Colors
+                                                                          .white
+                                                                    ]),
                                                               ),
-                                                              InkWell(
-                                                                onTap: () {
-                                                                  Get.back();
-                                                                  showStatusPopUp(
-                                                                      dashboard
-                                                                              .deliverymanAssignList[
-                                                                          index]);
-                                                                },
-                                                                child: SizedBox(
-                                                                  height: 35.h,
-                                                                  child: Card(
-                                                                    elevation:
-                                                                        1,
-                                                                    color:
-                                                                        deleveryColor,
-                                                                    shape:
-                                                                        RoundedRectangleBorder(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .only(
+                                                                start: 5.0.w,
+                                                                top: 10.0.h,
+                                                                bottom: 10.0.h,
+                                                                end: 20.0.w,
+                                                              ),
+                                                              child: Row(
+                                                                children: [
+                                                                  Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              6.0),
+                                                                              50),
+                                                                      color: Colors
+                                                                          .white,
+                                                                      image:
+                                                                          DecorationImage(
+                                                                        image: AssetImage(
+                                                                            Images.parcel),
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
+                                                                    height:
+                                                                        60.h,
+                                                                    width: 60.w,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 10.w,
+                                                                  ),
+                                                                  Expanded(
                                                                     child:
-                                                                        Padding(
-                                                                      padding:
-                                                                          const EdgeInsets
-                                                                              .only(
-                                                                        left: 5,
-                                                                        right:
-                                                                            5,
-                                                                      ),
-                                                                      child:
-                                                                          Text(
-                                                                        'change_status'
-                                                                            .tr,
-                                                                        style: fontRegular.copyWith(
-                                                                            color:
-                                                                                darkGreen,
-                                                                            fontSize:
-                                                                                14,
-                                                                            fontWeight:
-                                                                                FontWeight.bold),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(
-                                                            height: 15.h,
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .location_on_outlined,
-                                                                    color:
-                                                                        hintColor,
-                                                                    size: 14,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 2.w,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width:
-                                                                        100.w,
-                                                                    child: Text(
-                                                                      dashboard
-                                                                          .deliverymanAssignList[
-                                                                              index]
-                                                                          .customerAddress
-                                                                          .toString(),
-                                                                      style: fontRegular
-                                                                          .copyWith(
-                                                                        fontWeight:
-                                                                            FontWeight.w400,
-                                                                        fontSize:
-                                                                            14,
-                                                                        color:
-                                                                            hintColor,
-                                                                      ),
-                                                                      maxLines:
-                                                                          2,
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Row(
-                                                                children: [
-                                                                  TextButton(
-                                                                    onPressed:
-                                                                        () {
-                                                                      var url =
-                                                                          'https://www.google.com/maps/dir/?api=1&origin=&destination=${dashboard.deliverymanAssignList[index].customerAddress.toString()}&travelmode=driving';
-                                                                      _launchMapURL(
-                                                                          Uri.parse(
-                                                                              url));
-                                                                    },
-                                                                    style: TextButton.styleFrom(
-                                                                        padding:
-                                                                            EdgeInsets
-                                                                                .zero,
-                                                                        minimumSize: Size(
-                                                                            50,
-                                                                            30),
-                                                                        tapTargetSize:
-                                                                            MaterialTapTargetSize
-                                                                                .shrinkWrap,
-                                                                        alignment:
-                                                                            Alignment.centerLeft),
-                                                                    child: Row(
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
                                                                       children: [
-                                                                        Image
-                                                                            .asset(
-                                                                          Images
-                                                                              .mapIcon,
-                                                                          width:
-                                                                              25.w,
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.profileLineIcon,
+                                                                                  color: kMainColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 4.w,
+                                                                                ),
+                                                                                Text(
+                                                                                  dashboard.deliverymanAssignList[index].customerName.toString(),
+                                                                                  style: fontRegular.copyWith(
+                                                                                    fontWeight: FontWeight.w700,
+                                                                                    fontSize: 14.sp,
+                                                                                    color: kMainColor,
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                  overflow: TextOverflow.ellipsis,
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            InkWell(
+                                                                              onTap: () {
+                                                                                Get.back();
+                                                                                showStatusPopUp(dashboard.deliverymanAssignList[index]);
+                                                                              },
+                                                                              child: SizedBox(
+                                                                                height: 35.h,
+                                                                                child: Card(
+                                                                                  elevation: 1,
+                                                                                  color: deleveryColor,
+                                                                                  shape: RoundedRectangleBorder(
+                                                                                    borderRadius: BorderRadius.circular(6.0),
+                                                                                  ),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 5,
+                                                                                      right: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'change_status'.tr,
+                                                                                      style: fontRegular.copyWith(color: darkGreen, fontSize: 14, fontWeight: FontWeight.bold),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              15.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.locationLineIcon,
+                                                                                  color: hintColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 2.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 100.w,
+                                                                                  child: Text(
+                                                                                    dashboard.deliverymanAssignList[index].customerAddress.toString(),
+                                                                                    style: fontRegular.copyWith(
+                                                                                      fontWeight: FontWeight.w400,
+                                                                                      fontSize: 14,
+                                                                                      color: hintColor,
+                                                                                    ),
+                                                                                    maxLines: 2,
+                                                                                    overflow: TextOverflow.ellipsis,
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              children: [
+                                                                                TextButton(
+                                                                                  onPressed: () {
+                                                                                    var url = 'https://www.google.com/maps/dir/?api=1&origin=&destination=${dashboard.deliverymanAssignList[index].customerAddress.toString()}&travelmode=driving';
+                                                                                    _launchMapURL(Uri.parse(url));
+                                                                                  },
+                                                                                  style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                  child: Row(
+                                                                                    children: [
+                                                                                      Image.asset(
+                                                                                        Images.mapIcon,
+                                                                                        width: 25.w,
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 25.w,
+                                                                                )
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              5.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.phoneIcon,
+                                                                                  color: hintColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 2.w,
+                                                                                ),
+                                                                                Text(
+                                                                                  dashboard.deliverymanAssignList[index].customerPhone.toString(),
+                                                                                  style: fontRegular.copyWith(
+                                                                                    fontWeight: FontWeight.w400,
+                                                                                    fontSize: 14,
+                                                                                    color: hintColor,
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              children: [
+                                                                                Row(
+                                                                                  children: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => _launchURL(dashboard.deliverymanAssignList[index].customerPhone.toString()),
+                                                                                      style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                      child: Row(
+                                                                                        children: [
+                                                                                          Image.asset(
+                                                                                            Images.callIcon,
+                                                                                            width: 25.w,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                Row(
+                                                                                  children: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => _launchWhatsAppURL(dashboard.deliverymanAssignList[index].customerPhone.toString()),
+                                                                                      style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                      child: Row(
+                                                                                        children: [
+                                                                                          Image.asset(
+                                                                                            Images.whatsAppIcon,
+                                                                                            width: 25.w,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                    SizedBox(
+                                                                                      width: 5.w,
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              5.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children: [
+                                                                            Image.asset(
+                                                                              Images.money1,
+                                                                              color: kTitleColor,
+                                                                              width: 14.w,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 2.w,
+                                                                            ),
+                                                                            Text(
+                                                                              '${Get.find<GlobalController>().currency!}${dashboard.deliverymanAssignList[index].cashCollection.toString()}',
+                                                                              style: fontRegular.copyWith(
+                                                                                fontWeight: FontWeight.w400,
+                                                                                fontSize: 14.sp,
+                                                                                color: kTitleColor,
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
-                                                                    width: 25.w,
-                                                                  )
                                                                 ],
                                                               ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5.h,
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Icon(
-                                                                    CupertinoIcons
-                                                                        .phone,
-                                                                    color:
-                                                                        hintColor,
-                                                                    size: 14,
-                                                                  ),
-                                                                  SizedBox(
-                                                                    width: 2.w,
-                                                                  ),
-                                                                  Text(
-                                                                    dashboard
-                                                                        .deliverymanAssignList[
-                                                                            index]
-                                                                        .customerPhone
-                                                                        .toString(),
-                                                                    style: fontRegular
-                                                                        .copyWith(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w400,
-                                                                      fontSize:
-                                                                          14,
-                                                                      color:
-                                                                          hintColor,
-                                                                    ),
-                                                                    maxLines: 1,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Row(
-                                                                children: [
-                                                                  Row(
-                                                                    children: [
-                                                                      TextButton(
-                                                                        onPressed: () => _launchURL(dashboard
-                                                                            .deliverymanAssignList[index]
-                                                                            .customerPhone
-                                                                            .toString()),
-                                                                        style: TextButton.styleFrom(
-                                                                            padding: EdgeInsets
-                                                                                .zero,
-                                                                            minimumSize: Size(50,
-                                                                                30),
-                                                                            tapTargetSize:
-                                                                                MaterialTapTargetSize.shrinkWrap,
-                                                                            alignment: Alignment.centerLeft),
-                                                                        child:
-                                                                            Row(
-                                                                          children: [
-                                                                            Image.asset(
-                                                                              Images.phoneIcon,
-                                                                              width: 25.w,
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      TextButton(
-                                                                        onPressed: () => _launchWhatsAppURL(dashboard
-                                                                            .deliverymanAssignList[index]
-                                                                            .customerPhone
-                                                                            .toString()),
-                                                                        style: TextButton.styleFrom(
-                                                                            padding: EdgeInsets
-                                                                                .zero,
-                                                                            minimumSize: Size(50,
-                                                                                30),
-                                                                            tapTargetSize:
-                                                                                MaterialTapTargetSize.shrinkWrap,
-                                                                            alignment: Alignment.centerLeft),
-                                                                        child:
-                                                                            Row(
-                                                                          children: [
-                                                                            Image.asset(
-                                                                              Images.whatsAppIcon,
-                                                                              width: 25.w,
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      SizedBox(
-                                                                        width:
-                                                                            5.w,
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5.h,
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Icon(
-                                                                CupertinoIcons
-                                                                    .money_dollar_circle,
-                                                                color:
-                                                                    kTitleColor,
-                                                                size: 16,
-                                                              ),
-                                                              SizedBox(
-                                                                width: 2.w,
-                                                              ),
-                                                              Text(
-                                                                '${Get.find<GlobalController>().currency!}${dashboard.deliverymanAssignList[index].cashCollection.toString()}',
-                                                                style: fontRegular
-                                                                    .copyWith(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400,
-                                                                  fontSize:
-                                                                      14.sp,
-                                                                  color:
-                                                                      kTitleColor,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
+                                                            ),
+                                                          ));
+                                                    },
+                                                  ),
                                                 ),
-                                              ),
-                                            ));
-                                      },
                                     ),
-                                  ),
-                          ),
-                        ],
+                                  ],
+                                )
+                              : Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(vertical: 18.h),
+                                      child:
+                                          dashboard.deliverymanAssignList
+                                                      .length ==
+                                                  0
+                                              ? Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 250.h),
+                                                  child: Center(
+                                                    child: Text(
+                                                      'no_item_found'.tr,
+                                                      style: fontRegular.copyWith(
+                                                          fontSize: Dimensions
+                                                              .fontSizeExtraLarge22
+                                                              .sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: kMainColor),
+                                                    ),
+                                                  ),
+                                                )
+                                              : RefreshIndicator(
+                                                  displacement: 250,
+                                                  backgroundColor:
+                                                      Colors.yellow,
+                                                  color: Colors.red,
+                                                  strokeWidth: 3,
+                                                  onRefresh: () async {
+                                                    await Future.delayed(
+                                                        Duration(
+                                                            milliseconds:
+                                                                1500));
+                                                    setState(() {
+                                                      dashboard.onInit();
+                                                    });
+                                                  },
+                                                  child: ListView.builder(
+                                                    itemCount: dashboard
+                                                        .deliverymanPickupAssignList
+                                                        .length,
+                                                    shrinkWrap: true,
+                                                    physics:
+                                                        NeverScrollableScrollPhysics(),
+                                                    padding: EdgeInsets.zero,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      return InkWell(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              showPopUp(dashboard
+                                                                      .deliverymanPickupAssignList[
+                                                                  index]);
+                                                            });
+                                                          },
+                                                          child: Card(
+                                                            color: kBgColor,
+                                                            margin: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        7),
+                                                            elevation: 1,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          6.0),
+                                                            ),
+                                                            child: Container(
+                                                              height: 165.h,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            6.0),
+                                                                gradient:
+                                                                    LinearGradient(
+                                                                        stops: [
+                                                                      0.02,
+                                                                      0.02
+                                                                    ],
+                                                                        colors: [
+                                                                      kSecondaryColor,
+                                                                      Colors
+                                                                          .white
+                                                                    ]),
+                                                              ),
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .only(
+                                                                start: 5.0.w,
+                                                                top: 10.0.h,
+                                                                bottom: 10.0.h,
+                                                                end: 20.0.w,
+                                                              ),
+                                                              child: Row(
+                                                                children: [
+                                                                  Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              50),
+                                                                      color: Colors
+                                                                          .white,
+                                                                      image:
+                                                                          DecorationImage(
+                                                                        image: AssetImage(
+                                                                            Images.parcel),
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                    height:
+                                                                        60.h,
+                                                                    width: 60.w,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 10.w,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.profileLineIcon,
+                                                                                  color: kSecondaryColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 4.w,
+                                                                                ),
+                                                                                Text(
+                                                                                  dashboard.deliverymanPickupAssignList[index].customerName.toString(),
+                                                                                  style: fontRegular.copyWith(
+                                                                                    fontWeight: FontWeight.w700,
+                                                                                    fontSize: 14.sp,
+                                                                                    color: kSecondaryColor,
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                  overflow: TextOverflow.ellipsis,
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            InkWell(
+                                                                              onTap: () {
+                                                                                Get.back();
+                                                                                showStatusPopUp(dashboard.deliverymanPickupAssignList[index]);
+                                                                              },
+                                                                              child: SizedBox(
+                                                                                height: 35.h,
+                                                                                child: Card(
+                                                                                  elevation: 1,
+                                                                                  color: deleveryColor,
+                                                                                  shape: RoundedRectangleBorder(
+                                                                                    borderRadius: BorderRadius.circular(6.0),
+                                                                                  ),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsets.only(
+                                                                                      left: 5,
+                                                                                      right: 5,
+                                                                                    ),
+                                                                                    child: Text(
+                                                                                      'change_status'.tr,
+                                                                                      style: fontRegular.copyWith(color: darkGreen, fontSize: 14, fontWeight: FontWeight.bold),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              15.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.locationLineIcon,
+                                                                                  color: hintColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 2.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 100.w,
+                                                                                  child: Text(
+                                                                                    dashboard.deliverymanPickupAssignList[index].customerAddress.toString(),
+                                                                                    style: fontRegular.copyWith(
+                                                                                      fontWeight: FontWeight.w400,
+                                                                                      fontSize: 14,
+                                                                                      color: hintColor,
+                                                                                    ),
+                                                                                    maxLines: 2,
+                                                                                    overflow: TextOverflow.ellipsis,
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              children: [
+                                                                                TextButton(
+                                                                                  onPressed: () {
+                                                                                    var url = 'https://www.google.com/maps/dir/?api=1&origin=&destination=${dashboard.deliverymanPickupAssignList[index].customerAddress.toString()}&travelmode=driving';
+                                                                                    _launchMapURL(Uri.parse(url));
+                                                                                  },
+                                                                                  style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                  child: Row(
+                                                                                    children: [
+                                                                                      Image.asset(
+                                                                                        Images.mapIcon,
+                                                                                        width: 25.w,
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 25.w,
+                                                                                )
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              5.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Image.asset(
+                                                                                  Images.phoneIcon,
+                                                                                  color: hintColor,
+                                                                                  width: 14.w,
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 2.w,
+                                                                                ),
+                                                                                Text(
+                                                                                  dashboard.deliverymanPickupAssignList[index].customerPhone.toString(),
+                                                                                  style: fontRegular.copyWith(
+                                                                                    fontWeight: FontWeight.w400,
+                                                                                    fontSize: 14,
+                                                                                    color: hintColor,
+                                                                                  ),
+                                                                                  maxLines: 1,
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Row(
+                                                                              children: [
+                                                                                Row(
+                                                                                  children: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => _launchURL(dashboard.deliverymanPickupAssignList[index].customerPhone.toString()),
+                                                                                      style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                      child: Row(
+                                                                                        children: [
+                                                                                          Image.asset(
+                                                                                            Images.callIcon,
+                                                                                            width: 25.w,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                Row(
+                                                                                  children: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => _launchWhatsAppURL(dashboard.deliverymanPickupAssignList[index].customerPhone.toString()),
+                                                                                      style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size(50, 30), tapTargetSize: MaterialTapTargetSize.shrinkWrap, alignment: Alignment.centerLeft),
+                                                                                      child: Row(
+                                                                                        children: [
+                                                                                          Image.asset(
+                                                                                            Images.whatsAppIcon,
+                                                                                            width: 25.w,
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                    SizedBox(
+                                                                                      width: 5.w,
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              5.h,
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children: [
+                                                                            Image.asset(
+                                                                              Images.money1,
+                                                                              color: kTitleColor,
+                                                                              width: 14.w,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 2.w,
+                                                                            ),
+                                                                            Text(
+                                                                              '${Get.find<GlobalController>().currency!}${dashboard.deliverymanPickupAssignList[index].cashCollection.toString()}',
+                                                                              style: fontRegular.copyWith(
+                                                                                fontWeight: FontWeight.w400,
+                                                                                fontSize: 14.sp,
+                                                                                color: kTitleColor,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ));
+                                                    },
+                                                  ),
+                                                ),
+                                    ),
+                                  ],
+                                ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
               GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -979,11 +1338,11 @@ class _DashBoardState extends State<DashBoard> {
                                                               MainAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Icon(
-                                                              CupertinoIcons
-                                                                  .person,
+                                                            Image.asset(
+                                                              Images
+                                                                  .profileLineIcon,
                                                               color: kMainColor,
-                                                              size: 16,
+                                                              width: 14.w,
                                                             ),
                                                             SizedBox(
                                                               width: 4.w,
@@ -1020,12 +1379,12 @@ class _DashBoardState extends State<DashBoard> {
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .location_on_outlined,
+                                                                Image.asset(
+                                                                  Images
+                                                                      .locationLineIcon,
                                                                   color:
                                                                       hintColor,
-                                                                  size: 14,
+                                                                  width: 14.w,
                                                                 ),
                                                                 SizedBox(
                                                                   width: 2.w,
@@ -1113,12 +1472,12 @@ class _DashBoardState extends State<DashBoard> {
                                                                   MainAxisAlignment
                                                                       .start,
                                                               children: [
-                                                                Icon(
-                                                                  CupertinoIcons
-                                                                      .phone,
+                                                                Image.asset(
+                                                                  Images
+                                                                      .phoneIcon,
                                                                   color:
                                                                       hintColor,
-                                                                  size: 14,
+                                                                  width: 14.w,
                                                                 ),
                                                                 SizedBox(
                                                                   width: 2.w,
@@ -1168,7 +1527,7 @@ class _DashBoardState extends State<DashBoard> {
                                                                         children: [
                                                                           Image
                                                                               .asset(
-                                                                            Images.phoneIcon,
+                                                                            Images.callIcon,
                                                                             width:
                                                                                 25.w,
                                                                           ),
@@ -1222,12 +1581,10 @@ class _DashBoardState extends State<DashBoard> {
                                                               MainAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Icon(
-                                                              CupertinoIcons
-                                                                  .money_dollar_circle,
-                                                              color:
-                                                                  kTitleColor,
-                                                              size: 16,
+                                                            Image.asset(
+                                                              Images.money1,
+                                                              color: hintColor,
+                                                              width: 14.w,
                                                             ),
                                                             SizedBox(
                                                               width: 2.w,
@@ -1389,11 +1746,11 @@ class _DashBoardState extends State<DashBoard> {
                                                               MainAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Icon(
-                                                              CupertinoIcons
-                                                                  .person,
+                                                            Image.asset(
+                                                              Images
+                                                                  .profileLineIcon,
                                                               color: kMainColor,
-                                                              size: 16,
+                                                              width: 14.w,
                                                             ),
                                                             SizedBox(
                                                               width: 4.w,
@@ -1430,12 +1787,12 @@ class _DashBoardState extends State<DashBoard> {
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .location_on_outlined,
+                                                                Image.asset(
+                                                                  Images
+                                                                      .locationLineIcon,
                                                                   color:
                                                                       hintColor,
-                                                                  size: 14,
+                                                                  width: 14.w,
                                                                 ),
                                                                 SizedBox(
                                                                   width: 2.w,
@@ -1518,73 +1875,108 @@ class _DashBoardState extends State<DashBoard> {
                                                               MainAxisAlignment
                                                                   .spaceBetween,
                                                           children: [
-                                                            Text(
-                                                              dashboard
-                                                                  .deliveredList[
-                                                                      index]
-                                                                  .customerPhone
-                                                                  .toString(),
-                                                              style: fontRegular
-                                                                  .copyWith(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                                fontSize: 14,
-                                                                color:
-                                                                    hintColor,
-                                                              ),
-                                                              maxLines: 1,
-                                                            ),
                                                             Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
                                                               children: [
-                                                                TextButton(
-                                                                  onPressed: () => _launchURL(dashboard
+                                                                Image.asset(
+                                                                  Images
+                                                                      .phoneIcon,
+                                                                  color:
+                                                                      hintColor,
+                                                                  width: 14.w,
+                                                                ),
+                                                                Text(
+                                                                  dashboard
                                                                       .deliveredList[
                                                                           index]
                                                                       .customerPhone
-                                                                      .toString()),
-                                                                  style: TextButton.styleFrom(
-                                                                      padding:
-                                                                          EdgeInsets
+                                                                      .toString(),
+                                                                  style: fontRegular
+                                                                      .copyWith(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    fontSize:
+                                                                        14,
+                                                                    color:
+                                                                        hintColor,
+                                                                  ),
+                                                                  maxLines: 1,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Row(
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    TextButton(
+                                                                      onPressed: () => _launchURL(dashboard
+                                                                          .deliveredList[
+                                                                              index]
+                                                                          .customerPhone
+                                                                          .toString()),
+                                                                      style: TextButton.styleFrom(
+                                                                          padding: EdgeInsets
                                                                               .zero,
-                                                                      minimumSize:
-                                                                          Size(
+                                                                          minimumSize: Size(
                                                                               50,
                                                                               30),
-                                                                      tapTargetSize:
-                                                                          MaterialTapTargetSize
+                                                                          tapTargetSize: MaterialTapTargetSize
                                                                               .shrinkWrap,
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .centerLeft),
-                                                                  child: Row(
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .phone_outlined,
-                                                                        color: Colors
-                                                                            .green,
-                                                                        size:
-                                                                            20,
+                                                                          alignment:
+                                                                              Alignment.centerLeft),
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Image
+                                                                              .asset(
+                                                                            Images.callIcon,
+                                                                            width:
+                                                                                25.w,
+                                                                          ),
+                                                                        ],
                                                                       ),
-                                                                      Text(
-                                                                        "Call me",
-                                                                        style: fontRegular
-                                                                            .copyWith(
-                                                                          fontWeight:
-                                                                              FontWeight.w800,
-                                                                          fontSize:
-                                                                              14,
-                                                                          color:
-                                                                              Colors.green,
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                                SizedBox(
-                                                                  width: 20.w,
-                                                                )
+                                                                Row(
+                                                                  children: [
+                                                                    TextButton(
+                                                                      onPressed: () => _launchWhatsAppURL(dashboard
+                                                                          .deliveredList[
+                                                                              index]
+                                                                          .customerPhone
+                                                                          .toString()),
+                                                                      style: TextButton.styleFrom(
+                                                                          padding: EdgeInsets
+                                                                              .zero,
+                                                                          minimumSize: Size(
+                                                                              50,
+                                                                              30),
+                                                                          tapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
+                                                                          alignment:
+                                                                              Alignment.centerLeft),
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Image
+                                                                              .asset(
+                                                                            Images.whatsAppIcon,
+                                                                            width:
+                                                                                25.w,
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width:
+                                                                          5.w,
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ],
                                                             ),
                                                           ],
@@ -1597,12 +1989,11 @@ class _DashBoardState extends State<DashBoard> {
                                                               MainAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Icon(
-                                                              CupertinoIcons
-                                                                  .money_dollar_circle,
+                                                            Image.asset(
+                                                              Images.money1,
                                                               color:
                                                                   kTitleColor,
-                                                              size: 16,
+                                                              width: 14.w,
                                                             ),
                                                             SizedBox(
                                                               width: 2.w,
@@ -1691,7 +2082,7 @@ class _DashBoardState extends State<DashBoard> {
                     children: [
                       Card(
                         elevation: 1,
-                        color: kSecondaryColor,
+                        color: statusActive == 1 ? kMainColor : kSecondaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6.0),
                         ),
@@ -1903,8 +2294,11 @@ class _DashBoardState extends State<DashBoard> {
                   Center(
                     child: Container(
                         padding: const EdgeInsets.all(10.0),
-                        decoration: const BoxDecoration(
-                            color: kMainColor, shape: BoxShape.circle),
+                        decoration: BoxDecoration(
+                            color: statusActive == 1
+                                ? kMainColor
+                                : kSecondaryColor,
+                            shape: BoxShape.circle),
                         child: const Icon(
                           FontAwesomeIcons.x,
                           color: kBgColor,
@@ -1954,7 +2348,7 @@ class _DashBoardState extends State<DashBoard> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  void showStatusPopUp(DeliverymanAssign parcel) {
+  void showStatusPopUp(parcel) {
     showDialog(
         barrierDismissible: true,
         context: context,
@@ -1986,8 +2380,11 @@ class _DashBoardState extends State<DashBoard> {
                             ),
                             Container(
                                 padding: const EdgeInsets.all(10.0),
-                                decoration: const BoxDecoration(
-                                    color: kMainColor, shape: BoxShape.circle),
+                                decoration: BoxDecoration(
+                                    color: statusActive == 1
+                                        ? kMainColor
+                                        : kSecondaryColor,
+                                    shape: BoxShape.circle),
                                 child: const Icon(
                                   FontAwesomeIcons.x,
                                   color: kBgColor,
@@ -2105,8 +2502,12 @@ class _DashBoardState extends State<DashBoard> {
                                 height: 45,
                                 width: 100,
                                 decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: statusActive == 1
+                                          ? kMainColor
+                                          : kSecondaryColor),
                                   borderRadius: BorderRadius.circular(5),
-                                  color: kTitleColor,
+                                  color: Colors.white,
                                 ),
                                 child: Center(
                                   child: Text(
@@ -2114,7 +2515,9 @@ class _DashBoardState extends State<DashBoard> {
                                     style: fontRegular.copyWith(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16,
-                                      color: Colors.white,
+                                      color: statusActive == 1
+                                          ? kMainColor
+                                          : kSecondaryColor,
                                     ),
                                   ),
                                 ),
@@ -2129,7 +2532,9 @@ class _DashBoardState extends State<DashBoard> {
                                 width: 100,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
-                                  color: kMainColor,
+                                  color: statusActive == 1
+                                      ? kMainColor
+                                      : kSecondaryColor,
                                 ),
                                 child: Center(
                                   child: Text(

@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="wecourier.delivery.com"
+3    package="delivery.onetex.com.sa"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
@@ -66,9 +66,9 @@
 37-->[androidx.core:core:1.6.0] C:\Users\shand\.gradle\caches\transforms-3\5cb8da75145cc57c292ee7afd98a938a\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 38        android:debuggable="true"
 39        android:icon="@mipmap/launcher_icon"
-40        android:label="WE-Courier Delivery" >
+40        android:label="ونتكس مناديب" >
 41        <activity
-42            android:name="wecourier.delivery.com.MainActivity"
+42            android:name="delivery.onetex.com.sa.MainActivity"
 43            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
 44            android:exported="true"
 45            android:hardwareAccelerated="true"
@@ -204,7 +204,7 @@
 129-->[:firebase_messaging] D:\Mobile Practice\delivery.onetex\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:43:9-47:38
 130            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
 130-->[:firebase_messaging] D:\Mobile Practice\delivery.onetex\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-102
-131            android:authorities="wecourier.delivery.com.flutterfirebasemessaginginitprovider"
+131            android:authorities="delivery.onetex.com.sa.flutterfirebasemessaginginitprovider"
 131-->[:firebase_messaging] D:\Mobile Practice\delivery.onetex\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-88
 132            android:exported="false"
 132-->[:firebase_messaging] D:\Mobile Practice\delivery.onetex\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-37
@@ -301,7 +301,7 @@
 184-->[com.google.firebase:firebase-common:20.3.2] C:\Users\shand\.gradle\caches\transforms-3\3255f39b21bcbfee28daad22b1f61b22\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:25:9-30:39
 185            android:name="com.google.firebase.provider.FirebaseInitProvider"
 185-->[com.google.firebase:firebase-common:20.3.2] C:\Users\shand\.gradle\caches\transforms-3\3255f39b21bcbfee28daad22b1f61b22\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:26:13-77
-186            android:authorities="wecourier.delivery.com.firebaseinitprovider"
+186            android:authorities="delivery.onetex.com.sa.firebaseinitprovider"
 186-->[com.google.firebase:firebase-common:20.3.2] C:\Users\shand\.gradle\caches\transforms-3\3255f39b21bcbfee28daad22b1f61b22\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:27:13-72
 187            android:directBootAware="true"
 187-->[com.google.firebase:firebase-common:20.3.2] C:\Users\shand\.gradle\caches\transforms-3\3255f39b21bcbfee28daad22b1f61b22\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:28:13-43

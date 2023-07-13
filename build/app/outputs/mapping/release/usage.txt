@@ -6816,6 +6816,20 @@ com.tekartik.sqflite.operation.Operation:
     public abstract java.lang.String getMethod()
 com.tekartik.sqflite.operation.SqlErrorInfo:
     public void <init>()
+delivery.onetex.com.sa.BuildConfig
+delivery.onetex.com.sa.R$attr
+delivery.onetex.com.sa.R$color
+delivery.onetex.com.sa.R$dimen
+delivery.onetex.com.sa.R$drawable
+delivery.onetex.com.sa.R$id
+delivery.onetex.com.sa.R$integer
+delivery.onetex.com.sa.R$layout
+delivery.onetex.com.sa.R$mipmap
+delivery.onetex.com.sa.R$raw
+delivery.onetex.com.sa.R$string
+delivery.onetex.com.sa.R$style
+delivery.onetex.com.sa.R$styleable
+delivery.onetex.com.sa.R
 dev.fluttercommunity.plus.connectivity.BuildConfig
 dev.fluttercommunity.plus.connectivity.Connectivity:
     static final java.lang.String CONNECTIVITY_BLUETOOTH
@@ -14069,20 +14083,6 @@ org.jetbrains.annotations.NotNull
 org.jetbrains.annotations.Nullable
 org.jetbrains.annotations.PropertyKey
 org.jetbrains.annotations.TestOnly
-wecourier.delivery.com.BuildConfig
-wecourier.delivery.com.R$attr
-wecourier.delivery.com.R$color
-wecourier.delivery.com.R$dimen
-wecourier.delivery.com.R$drawable
-wecourier.delivery.com.R$id
-wecourier.delivery.com.R$integer
-wecourier.delivery.com.R$layout
-wecourier.delivery.com.R$mipmap
-wecourier.delivery.com.R$raw
-wecourier.delivery.com.R$string
-wecourier.delivery.com.R$style
-wecourier.delivery.com.R$styleable
-wecourier.delivery.com.R
 androidx.arch.core.internal.SafeIterableMap:
     public java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)
 androidx.core.app.NotificationCompat$BubbleMetadata$Api29Impl

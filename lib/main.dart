@@ -32,7 +32,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: kMainColor));
+        SystemUiOverlayStyle(
+          statusBarColor: kBgColor,
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -45,7 +50,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             translations: Languages(),
             locale: lang,
-            title: 'Merchant',
+            title: 'ونتكس مناديب',
             theme: ThemeData(
                     fontFamily: 'Display',
                     primaryColor: kMainColor,

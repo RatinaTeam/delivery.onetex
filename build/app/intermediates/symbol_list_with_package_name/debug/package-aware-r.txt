@@ -1,4 +1,4 @@
-wecourier.delivery.com
+delivery.onetex.com.sa
 attr activityAction
 attr activityName
 attr alpha

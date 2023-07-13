@@ -28,11 +28,11 @@ class ProfileCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 5,),
               Text(
                 topic,
                 textAlign: TextAlign.center,
@@ -42,12 +42,11 @@ class ProfileCard extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 5.h,),
               Text(
                 amount,
                 style: fontRegular.copyWith(
                   fontWeight: FontWeight.w700,
-                  fontSize: 16.sp,
+                  fontSize: 14.sp,
                   color: Colors.white,
                 ),
               ),

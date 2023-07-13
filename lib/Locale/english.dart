@@ -120,6 +120,7 @@ Map<String, String> english =
   'old_password':"Old Password",
   'retype_new_password':"Retype New Password",
   'choose_your_preferred_language':"Choose Your Preferred Language",
-
+  'pickup':"Pickup",
+  'assign':"Delivery",
 
 };

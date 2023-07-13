@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="wecourier.delivery.com"
+    package="delivery.onetex.com.sa"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
@@ -32,9 +32,9 @@
         android:name="android.app.Application"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/launcher_icon"
-        android:label="WE-Courier Delivery" >
+        android:label="ونتكس مناديب" >
         <activity
-            android:name="wecourier.delivery.com.MainActivity"
+            android:name="delivery.onetex.com.sa.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
             android:hardwareAccelerated="true"
@@ -123,7 +123,7 @@
 
         <provider
             android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
-            android:authorities="wecourier.delivery.com.flutterfirebasemessaginginitprovider"
+            android:authorities="delivery.onetex.com.sa.flutterfirebasemessaginginitprovider"
             android:exported="false"
             android:initOrder="99" />
 
@@ -178,7 +178,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="wecourier.delivery.com.firebaseinitprovider"
+            android:authorities="delivery.onetex.com.sa.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />

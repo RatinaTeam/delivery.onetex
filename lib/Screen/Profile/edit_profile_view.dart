@@ -163,7 +163,14 @@ class EditProfileView extends GetView {
                                     (context as Element).markNeedsBuild();
                                   },
                                   label: 'name'.tr,
-                                  prefixIcon: Icons.title,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.profileLineIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(height: 20.0.h),
                                 GlobalFormField(
@@ -182,7 +189,14 @@ class EditProfileView extends GetView {
                                     (context as Element).markNeedsBuild();
                                   },
                                   label: 'email'.tr,
-                                  prefixIcon: Icons.email_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.emailIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(height: 20.0.h),
                                 GlobalFormField(
@@ -201,7 +215,14 @@ class EditProfileView extends GetView {
                                     (context as Element).markNeedsBuild();
                                   },
                                   label: 'phone'.tr,
-                                  prefixIcon: Icons.phone_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.phoneIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(height: 20.0.h),
                                 GlobalFormField(
@@ -220,7 +241,14 @@ class EditProfileView extends GetView {
                                     (context as Element).markNeedsBuild();
                                   },
                                   label: 'address'.tr,
-                                  prefixIcon: Icons.home_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.locationLineIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(height: 30.0.h),
                                 ElevatedButton(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../utils/image.dart';
 import '../../utils/style.dart';
 import '../Payment/payment_parcel_history.dart';
 import '../Widgets/constant.dart';
@@ -53,41 +54,55 @@ class _HomeState extends State<Home> {
           }),
           destinations: [
             NavigationDestination(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 28.0,
+              icon: Image.asset(
+                Images.homeLineIcon,
+                width: 28.w,
                 color: grayColor,
               ),
-              selectedIcon: Icon(Icons.home, size: 28.0.h, color: kMainColor),
+              selectedIcon: Image.asset(
+                Images.homeIcon,
+                width: 28.w,
+                color: kMainColor,
+              ),
               label: "home".tr,
             ),
             NavigationDestination(
-              icon: Icon(
-                CupertinoIcons.square_list,
-                size: 28.0,
+              icon: Image.asset(
+                Images.paperLineIcon,
+                width: 28.w,
                 color: grayColor,
               ),
-              selectedIcon:
-              Icon(CupertinoIcons.square_list_fill, size: 28.0, color: kMainColor),
+              selectedIcon: Image.asset(
+                Images.paperIcon ,
+                width: 28.w,
+                color: kMainColor,
+              ),
               label: "payment_log".tr,
             ),
             NavigationDestination(
-              icon: Icon(
-                Icons.payments_outlined,
-                size: 28.0,
+              icon: Image.asset(
+                Images.transactionsLineIcon,
+                width: 28.w,
                 color: grayColor,
               ),
-              selectedIcon:
-              Icon(Icons.payments, size: 28.0, color: kMainColor),
+              selectedIcon: Image.asset(
+                Images.transactionsIcon ,
+                width: 28.w,
+                color: kMainColor,
+              ),
               label: "parcel_payment_history".tr,
             ),
             NavigationDestination(
-              icon: Icon(
-                Icons.person_2_outlined,
-                size: 28.0,
+              icon: Image.asset(
+                Images.profileLineIcon,
+                width: 28.w,
                 color: grayColor,
               ),
-              selectedIcon: Icon(Icons.person_2, size: 28.0, color: kMainColor),
+              selectedIcon: Image.asset(
+                Images.profileIcon ,
+                width: 28.w,
+                color: kMainColor,
+              ),
               label: "profile".tr,
             ),
           ],

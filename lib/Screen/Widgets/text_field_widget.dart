@@ -15,27 +15,27 @@ class GlobalFormField extends StatefulWidget {
   final bool isPassword;
   final String label;
   final String? hintText;
-  final IconData? suffix;
-  final IconData prefixIcon;
+  final dynamic suffix;
+  final dynamic prefixIcon;
   final Function? suffixPressed;
   final bool isClickable;
 
   const GlobalFormField(
       {Key? key,
-        required this.controller,
-        required this.type,
-        this.initial,
-        this.onSubmit,
-        this.onChange,
-        this.onTap,
-        this.isPassword = false,
-        required this.validate,
-        required this.label,
-        this.hintText,
-        this.suffix,
-        required this.prefixIcon,
-        this.suffixPressed,
-        this.isClickable = true})
+      required this.controller,
+      required this.type,
+      this.initial,
+      this.onSubmit,
+      this.onChange,
+      this.onTap,
+      this.isPassword = false,
+      required this.validate,
+      required this.label,
+      this.hintText,
+      this.suffix,
+      required this.prefixIcon,
+      this.suffixPressed,
+      this.isClickable = true})
       : super(key: key);
 
   @override
@@ -48,8 +48,12 @@ class _GlobalFormFieldState extends State<GlobalFormField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.label,style: fontRegular.copyWith(color: kTitleColor,fontWeight: FontWeight.bold)),
-        SizedBox(height: 8.h,),
+        Text(widget.label,
+            style: fontRegular.copyWith(
+                color: kTitleColor, fontWeight: FontWeight.bold)),
+        SizedBox(
+          height: 8.h,
+        ),
         TextFormField(
           initialValue: widget.initial,
           controller: widget.controller,
@@ -61,7 +65,8 @@ class _GlobalFormFieldState extends State<GlobalFormField> {
           onChanged: widget.onChange,
           onTap: widget.onTap,
           validator: widget.validate,
-          style: fontRegular.copyWith(color: kTitleColor,fontSize: Dimensions.fontSizeDefault.sp),
+          style: fontRegular.copyWith(
+              color: kTitleColor, fontSize: Dimensions.fontSizeDefault.sp),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 15.h),
             //labelText: widget.label,
@@ -80,19 +85,18 @@ class _GlobalFormFieldState extends State<GlobalFormField> {
             ),
             hintText: widget.hintText,
             hintStyle: fontRegular.copyWith(color: kGreyTextColor),
-            prefixIcon: Icon(widget.prefixIcon, color: kTitleColor),
+            prefixIcon: widget.prefixIcon,
             suffixIcon: widget.suffix != null
                 ? IconButton(
-              onPressed: () {
-                widget.suffixPressed!();
-              },
-              icon: Icon(
-                widget.suffix,
-              ),
-            )
+                    onPressed: () {
+                      widget.suffixPressed!();
+                    },
+                    icon: widget.suffix,
+                  )
                 : const SizedBox(),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),),
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         ),
       ],

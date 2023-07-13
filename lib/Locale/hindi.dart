@@ -115,5 +115,6 @@ Map<String, String> hindi =
   'new_password':"नया पासवर्ड",
   'old_password':"पुराना पासवर्ड",
   'retype_new_password':"नया पासवर्ड दोबारा टाइप करें",
-
+  'pickup': 'पिकअप',
+  'assign': 'असाइन'
 };

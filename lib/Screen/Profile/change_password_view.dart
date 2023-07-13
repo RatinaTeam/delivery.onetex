@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../Controllers/profile_controller.dart';
+import '../../utils/image.dart';
 import '../../utils/size_config.dart';
 import '../../utils/style.dart';
 import '../Widgets/constant.dart';
@@ -22,7 +23,10 @@ class ChangePasswordView extends GetView {
       appBar: AppBar(
         title: Text(
           'change_password'.tr,
-          style: fontRegular.copyWith(fontSize: Dimensions.fontSizeExtraLarge.sp, fontWeight: FontWeight.w800,color: kMainColor),
+          style: fontRegular.copyWith(
+              fontSize: Dimensions.fontSizeExtraLarge.sp,
+              fontWeight: FontWeight.w800,
+              color: kMainColor),
         ),
         centerTitle: true,
         elevation: 0.3,
@@ -52,10 +56,18 @@ class ChangePasswordView extends GetView {
                               GlobalFormField(
                                   controller: profile.passwordCurrentController,
                                   type: TextInputType.visiblePassword,
-                                  validate: (value) =>
-                                  value!.isEmpty ? 'Enter old password' : null,
+                                  validate: (value) => value!.isEmpty
+                                      ? 'Enter old password'
+                                      : null,
                                   label: 'old_password'.tr,
-                                  prefixIcon: Icons.lock_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.lockIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                   hintText: '************'),
                               SizedBox(
                                 height: 20.h,
@@ -63,10 +75,18 @@ class ChangePasswordView extends GetView {
                               GlobalFormField(
                                   controller: profile.passwordController,
                                   type: TextInputType.visiblePassword,
-                                  validate: (value) =>
-                                  value!.isEmpty ? 'Enter new password' : null,
+                                  validate: (value) => value!.isEmpty
+                                      ? 'Enter new password'
+                                      : null,
                                   label: 'new_password'.tr,
-                                  prefixIcon: Icons.lock_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.lockIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                   hintText: '************'),
                               SizedBox(
                                 height: 20.h,
@@ -78,7 +98,14 @@ class ChangePasswordView extends GetView {
                                       ? 'Enter confirmation password'
                                       : null,
                                   label: 'retype_new_password'.tr,
-                                  prefixIcon: Icons.lock_outlined,
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      Images.lockIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
                                   hintText: '************'),
                               SizedBox(
                                 height: 30.h,
@@ -89,9 +116,11 @@ class ChangePasswordView extends GetView {
                                 children: [
                                   ElevatedButton(
                                     onPressed: () {
-                                      final FormState? form = _formKey.currentState;
+                                      final FormState? form =
+                                          _formKey.currentState;
                                       if (form!.validate()) {
-                                        profile.updateUserPassword(context: context);
+                                        profile.updateUserPassword(
+                                            context: context);
                                       }
                                     },
                                     style: ElevatedButton.styleFrom(

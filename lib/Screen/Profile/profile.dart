@@ -112,9 +112,12 @@ class _ProfileState extends State<Profile> {
                                                         Row(
                                                           mainAxisAlignment: MainAxisAlignment.center,
                                                           children: [
-                                                            Icon(Icons.email_outlined),
+                                                            Image.asset(
+                                                              Images.emailIcon,
+                                                              width: 14.w,
+                                                            ),
                                                             SizedBox(
-                                                              height: 2.w,
+                                                              height: 4.w,
                                                             ),
                                                             Text(
                                                               profile.profileUser.user!.email
@@ -132,9 +135,12 @@ class _ProfileState extends State<Profile> {
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                Icon(Icons.phone_outlined),
+                                                                Image.asset(
+                                                                  Images.phoneIcon,
+                                                                  width: 14.w,
+                                                                ),
                                                                 SizedBox(
-                                                                  height: 2.w,
+                                                                  height: 4.w,
                                                                 ),
                                                                 Text(
                                                                   profile.profileUser.user!.phone
@@ -156,9 +162,12 @@ class _ProfileState extends State<Profile> {
                                                             ),
                                                             Row(
                                                               children: [
-                                                                Icon(Icons.location_on_outlined),
+                                                                Image.asset(
+                                                                  Images.locationLineIcon,
+                                                                  width: 14.w,
+                                                                ),
                                                                 SizedBox(
-                                                                  height: 2.w,
+                                                                  height: 4.w,
                                                                 ),
                                                                 Text(
                                                                   profile.profileUser.user!.address
