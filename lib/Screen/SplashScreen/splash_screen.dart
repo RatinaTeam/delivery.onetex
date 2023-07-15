@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../Controllers/auth-controller.dart';
 import '../../Controllers/global-controller.dart';
 import '../../utils/image.dart';
+import '../../utils/my_fade_in.dart';
 import '../Authentication/sign_in.dart';
 import '../Widgets/constant.dart';
 
@@ -19,7 +20,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   final AuthController _authController = AuthController();
 
   @override
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
     Timer(
       const Duration(seconds: 2),
-          () => {
+      () => {
         logInCheck(),
       },
     );
@@ -50,29 +50,31 @@ class _SplashScreenState extends State<SplashScreen> {
 
   logInCheck() async {
     if (Get.find<GlobalController>().isUser) {
-       _authController.refreshToken(context);
+      _authController.refreshToken(context);
     } else {
       Get.off(() => const SignIn());
     }
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kMainColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children:  [
-          Center(
-            child: Image(
-              image: AssetImage(Images.appLogo),
+      backgroundColor: kBgColor,
+      body: Padding(
+        padding: const EdgeInsets.all(45.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            MyFadeIn(
+              child: Center(
+                child: Image(
+                  image: AssetImage(Images.appLogo1),
+                ),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

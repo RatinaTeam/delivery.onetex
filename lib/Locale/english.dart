@@ -15,7 +15,7 @@ Map<String, String> english =
   'vat': "Vat",
   'paid_amount': "Paid amount",
   'name': "Name",
-  'we_courier_delivery':"We Courier Delivery",
+  'we_courier_delivery':"Ontex Delivery",
   'reset_password':'Reset Password',
   'email_mobile':"Email/Mobile*",
   'password':'Password*',
@@ -28,9 +28,9 @@ Map<String, String> english =
   'forgot_password':"Forgot Password",
   'sign_up_here':"Sign up here",
   'registration_form':"Registration Form",
-  'wecourier':"Courier",
+  'wecourier':"ونتكس",
   'we':"We",
-  'courier':"Courier",
+  'courier':"ونتكس",
   'shop_name':"Shop Name",
   'pickup_address':"Pickup Address",
   'cash_collection':"Cash Collection",
@@ -119,6 +119,8 @@ Map<String, String> english =
   'new_password':"New Password",
   'old_password':"Old Password",
   'retype_new_password':"Retype New Password",
-
+  'choose_your_preferred_language':"Choose Your Preferred Language",
+  'pickup':"Pickup",
+  'assign':"Delivery",
 
 };

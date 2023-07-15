@@ -115,5 +115,6 @@ Map<String, String> bangla =
   'new_password':"নতুন পাসওয়ার্ড",
   'old_password':"পুরানো পাসওয়ার্ড",
   'retype_new_password':"নতুন পাসওয়ার্ড পুনরায় টাইপ করুন",
-
+  'pickup': 'পিকআপ',
+  'assign': 'অ্যাসাইন'
 };

@@ -1,5 +1,6 @@
 class Images {
   static String get appLogo => 'assets/images/logo.png';
+  static String get appLogo1 => 'assets/images/logo1.png';
   static String get kPath1 => 'assets/images/img1.png';
   static String get kPath2 => 'assets/images/img2.png';
   static String get kPath3 => 'assets/images/img3.png';
@@ -27,4 +28,36 @@ class Images {
   static String get item1 => 'assets/images/item.png';
   static String get addons1 => 'assets/images/addons.png';
   static String get imageCustomer => 'assets/images/customer.png';
+  static String get mapIcon => 'assets/icons/maps.png';
+  static String get whatsAppIcon => 'assets/icons/whatsapp.png';
+  static String get callIcon => 'assets/icons/telephone.png';
+  static String get emailIcon => 'assets/icons/email.png';
+  static String get lockIcon => 'assets/icons/lock.png';
+  static String get viewIcon => 'assets/icons/view.png';
+  static String get hideIcon => 'assets/icons/hide.png';
+  static String get phoneIcon => 'assets/icons/phone.png';
+  static String get businessIcon => 'assets/icons/business.png';
+  static String get profileLineIcon => 'assets/icons/profile_outlined.png';
+  static String get profileIcon => 'assets/icons/profile.png';
+  static String get homeLineIcon => 'assets/icons/home_outlined.png';
+  static String get locationLineIcon => 'assets/icons/location_on.png';
+  static String get cartLineIcon => 'assets/icons/cart_outlined.png';
+  static String get cartIcon => 'assets/icons/cart.png';
+  static String get shopsIcon => 'assets/icons/shopping.png';
+  static String get checkIcon => 'assets/icons/check.png';
+  static String get settingsIcon => 'assets/icons/settings.png';
+  static String get menuIcon => 'assets/icons/menu.png';
+  static String get logoutIcon => 'assets/icons/logout.png';
+  static String get homeIcon => 'assets/icons/home.png';
+  static String get chargesIcon => 'assets/icons/delivery_charges.png';
+  static String get chargesLineIcon => 'assets/icons/delivery_charges_outlined.png';
+  static String get money => 'assets/icons/money.png';
+  static String get money1 => 'assets/icons/money1.png';
+  static String get noteIcon => 'assets/icons/note.png';
+  static String get editIcon => 'assets/icons/edit.png';
+  static String get deleteIcon => 'assets/icons/delete.png';
+  static String get paperIcon => 'assets/icons/paper.png';
+  static String get transactionsIcon => 'assets/icons/transactions.png';
+  static String get transactionsLineIcon => 'assets/icons/transactions_outlined.png';
+  static String get paperLineIcon => 'assets/icons/paper_outlined.png';
 }

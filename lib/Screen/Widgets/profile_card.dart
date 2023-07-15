@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/style.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -21,32 +22,31 @@ class ProfileCard extends StatelessWidget {
     return
       Container(
         height: ScreenSize(context).mainHeight / 7.7,
-        width: ScreenSize(context).mainWidth / 3.4,
+        width: ScreenSize(context).mainWidth / 3.7,
         decoration: BoxDecoration(
           color: cardColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(6),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 5,),
               Text(
                 topic,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: fontRegular.copyWith(
                   fontWeight: FontWeight.w400,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 5,),
               Text(
                 amount,
-                style: const TextStyle(
+                style: fontRegular.copyWith(
                   fontWeight: FontWeight.w700,
-                  fontSize: 16,
+                  fontSize: 14.sp,
                   color: Colors.white,
                 ),
               ),

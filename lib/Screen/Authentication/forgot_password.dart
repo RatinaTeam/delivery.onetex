@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../utils/style.dart';
 import '../Widgets/button_global.dart';
 import '../Widgets/constant.dart';
 
@@ -23,7 +24,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         appBar: AppBar(
           title: Text(
             'reset_password'.tr,
-            style: kTextStyle.copyWith(color: kTitleColor),
+            style: fontRegular.copyWith(color: kTitleColor),
           ),
           iconTheme: const IconThemeData(
             color: kTitleColor,
@@ -47,7 +48,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
               Text(
                 'reset_password'.tr,
-                style: kTextStyle.copyWith(color: kTitleColor, fontSize: 18.0),
+                style: fontRegular.copyWith(color: kTitleColor, fontSize: 18.0),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -70,7 +71,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                        SizedBox(height: 20.0),
                       Text(
                         'dont_worry_we_ll_send_you_an_email_to_reset_your_password.'.tr,
-                        style: kTextStyle.copyWith(
+                        style: fontRegular.copyWith(
                           color: kTitleColor,
                         ),
                       ),
@@ -81,9 +82,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         textFieldType: TextFieldType.EMAIL,
                         decoration: kInputDecoration.copyWith(
                           labelText: 'email_mobile'.tr,
-                          labelStyle: kTextStyle.copyWith(color: kTitleColor),
+                          labelStyle: fontRegular.copyWith(color: kTitleColor),
                           hintText: 'rxcourier@gmail.com',
-                          hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
+                          hintStyle: fontRegular.copyWith(color: kGreyTextColor),
                           suffixIcon:
                               const Icon(Icons.mail, color: kGreyTextColor),
                         ),
@@ -106,7 +107,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         children: [
                           Text(
                             'dont_have_an_account'.tr,
-                            style: kTextStyle.copyWith(color: kGreyTextColor),
+                            style: fontRegular.copyWith(color: kGreyTextColor),
                           ),
 
                           const SizedBox(width: 5.0),
@@ -121,7 +122,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           const SizedBox(width: 5.0),
                           Text(
                             'sign_in'.tr,
-                            style: kTextStyle.copyWith(color: kSecondaryColor),
+                            style: fontRegular.copyWith(color: kSecondaryColor),
                           ).onTap(
                             () => const SignIn().launch(context),
                           ),

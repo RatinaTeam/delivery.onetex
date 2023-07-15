@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../../utils/style.dart';
 import '../button_global.dart';
 import '../constant.dart';
 import 'package:shimmer/shimmer.dart';
@@ -111,7 +112,7 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                     children: [
                       Text(
                         '',
-                        style: kTextStyle.copyWith(
+                        style: fontRegular.copyWith(
                             color: kTitleColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18.0),
@@ -119,7 +120,7 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       const SizedBox(height: 10.0),
                       Text(
                         '',
-                        style: kTextStyle.copyWith(
+                        style: fontRegular.copyWith(
                           color: kTitleColor,
                         ),
                         maxLines: 5,
@@ -156,7 +157,7 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
             child:
               Text(
                 'merchant_dashboard'.tr,
-                style: kTextStyle.copyWith(
+                style: fontRegular.copyWith(
                     color: kTitleColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
@@ -198,14 +199,14 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                               const SizedBox(height: 10.0),
                               Text(
                                 reportList[i],
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor,
                                     fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(height: 10.0),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor,
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold),
@@ -243,13 +244,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_cash_collection'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -258,13 +259,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_selling_price'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -273,13 +274,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'net_profit_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 "0",
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -305,13 +306,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_liquid_fragile_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -320,13 +321,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_packing_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -335,13 +336,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_vat_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -350,12 +351,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_delivery_charge'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text('0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -364,13 +365,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_cod_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -396,13 +397,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_delivery_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -411,13 +412,13 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                             children: [
                               Text(
                                 'total_current_payable_amount'.tr,
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                               const Spacer(),
                               Text(
                                 '0',
-                                style: kTextStyle.copyWith(
+                                style: fontRegular.copyWith(
                                     color: kTitleColor),
                               ),
                             ],
@@ -435,7 +436,7 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
             child:
               Text(
                 'all_reports'.tr,
-                style: kTextStyle.copyWith(
+                style: fontRegular.copyWith(
                     color: kGreyTextColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
@@ -459,12 +460,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_sales_amount'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -492,12 +493,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_delivery_fees_paid'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -525,12 +526,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'net_profit_amount'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           "0",
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -558,12 +559,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'current_balance'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -591,12 +592,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'opening_balance'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -624,12 +625,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'vat'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -657,12 +658,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'payment_processing'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                          '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -690,12 +691,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'paid_amount'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -723,12 +724,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_shop'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -756,12 +757,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_parcel_bank_item'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -789,12 +790,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_payment_request'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),
@@ -822,12 +823,12 @@ class _DashboardShimmerState extends State<DashboardShimmer> {
                       children: [
                         Text(
                           'total_fraud_customer'.tr,
-                          style: kTextStyle.copyWith(color: kTitleColor),
+                          style: fontRegular.copyWith(color: kTitleColor),
                         ),
                         const SizedBox(height: 5.0),
                         Text(
                           '0',
-                          style: kTextStyle.copyWith(
+                          style: fontRegular.copyWith(
                               color: kTitleColor,
                               fontWeight: FontWeight.bold),
                         ),

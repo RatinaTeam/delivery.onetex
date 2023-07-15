@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../utils/style.dart';
 
 import 'constant.dart';
 
@@ -14,13 +16,18 @@ class ButtonGlobal extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   ButtonGlobal(
       {required this.buttontext,
-      required this.buttonDecoration,
-      required this.onPressed});
+        required this.buttonDecoration,
+        required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 20,),
+        minimumSize: Size(50, 30),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.only(top: 12.0, bottom: 12.0,),
@@ -28,9 +35,9 @@ class ButtonGlobal extends StatelessWidget {
         child: Center(
           child: Text(
             buttontext,
-            style: kTextStyle.copyWith(
+            style: fontRegular.copyWith(
                 fontSize: 18.0,
-                color: kBgColor,
+                color: Colors.white,
                 fontWeight: FontWeight.bold),
           ),
         ),
@@ -51,9 +58,9 @@ class ButtonGlobalWithoutIcon extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   ButtonGlobalWithoutIcon(
       {required this.buttontext,
-      required this.buttonDecoration,
-      required this.onPressed,
-      required this.buttonTextColor});
+        required this.buttonDecoration,
+        required this.onPressed,
+        required this.buttonTextColor});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +75,7 @@ class ButtonGlobalWithoutIcon extends StatelessWidget {
           children: [
             Text(
               buttontext,
-              style: GoogleFonts.jost(fontSize: 20.0, color: buttonTextColor),
+              style: fontRegular.copyWith(fontSize: 20.0.sp, color: buttonTextColor),
             ),
           ],
         ),

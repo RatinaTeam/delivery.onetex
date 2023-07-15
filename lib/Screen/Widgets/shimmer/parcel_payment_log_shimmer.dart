@@ -25,7 +25,7 @@ class _ParcelPaymentLogShimmerState extends State<ParcelPaymentLogShimmer> {
               baseColor: Colors.grey[300]!,
               child:
             Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 18.0),
             child:
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,11 +41,13 @@ class _ParcelPaymentLogShimmerState extends State<ParcelPaymentLogShimmer> {
                 ),
                 SizedBox(
                   width: 190,
-                  child: Text(
-                      'parcel delivery',
-                      style: const TextStyle(
-                        fontSize: 14,
-                      )
+                  child: Center(
+                    child: Text(
+                        'parcel delivery',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        )
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -53,6 +55,7 @@ class _ParcelPaymentLogShimmerState extends State<ParcelPaymentLogShimmer> {
                   child:
                   Text(
                    '0.00',
+                    textAlign: TextAlign.end,
                     style: const TextStyle(
                       fontSize: 14,
                     ),

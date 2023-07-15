@@ -41,11 +41,13 @@ class _PaymentLogShimmerState extends State<PaymentLogShimmer> {
                 ),
                 SizedBox(
                   width: 190,
-                  child: Text(
-                      'parcel delivery',
-                      style: const TextStyle(
-                        fontSize: 14,
-                      )
+                  child: Center(
+                    child: Text(
+                        'parcel delivery',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        )
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -53,6 +55,7 @@ class _PaymentLogShimmerState extends State<PaymentLogShimmer> {
                   child:
                   Text(
                    '0.00',
+                    textAlign: TextAlign.end,
                     style: const TextStyle(
                       fontSize: 14,
                     ),
