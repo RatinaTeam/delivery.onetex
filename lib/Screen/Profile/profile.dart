@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../Controllers/global-controller.dart';
@@ -190,7 +189,7 @@ class _ProfileState extends State<Profile> {
                                                               trackNo: profile
                                                                   .profileUser.deliveryInProgress
                                                                   .toString(),
-                                                              track: "progress".tr,
+                                                              track: "delivered_progress".tr,
                                                             ),
                                                             Tracker(
                                                               trackNo: profile

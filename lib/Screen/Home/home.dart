@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             indicatorColor: kMainColor.withOpacity(0.2),
             labelTextStyle: MaterialStateProperty.all(
               fontRegular.copyWith(
-                  color: kMainColor, fontSize: 13, fontWeight: FontWeight.w700),
+                  color: kMainColor, fontSize: 10.sp, fontWeight: FontWeight.w700),
             ),
             labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected),
         child: NavigationBar(
